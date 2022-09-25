@@ -1,9 +1,9 @@
 const updatedBlog = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector("#project-name").value.trim();
-  const id = document.querySelector("#project-name").dataset.blog_id;
-  const description = document.querySelector("#project-desc").value.trim();
+  const name = document.querySelector("#blog-name").value.trim();
+  const id = document.querySelector("#blog-name").dataset.blog_id;
+  const description = document.querySelector("#blog-desc").value.trim();
 
   if (name && description) {
     const response = await fetch(`/api/blogs/${id}`, {
@@ -23,5 +23,5 @@ const updatedBlog = async (event) => {
 };
 
 document
-  .querySelector(".new-project-form")
+  .querySelector(".new-blog-form")
   .addEventListener("submit", updatedBlog);

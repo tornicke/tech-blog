@@ -4,7 +4,7 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all blogs and JOIN with user data
     const data = await Blog.findAll({
       include: [
         {
@@ -29,18 +29,18 @@ router.get("/", async (req, res) => {
 
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all blogs and JOIN with user data
     const data = await Blog.findAll({
       where: { user_id: req.session.user_id },
       include: [{ model: User }],
     });
 
     // Serialize data so the template can read it
-    const projects = data.map((project) => project.get({ plain: true }));
+    const blogs = data.map((blog) => blog.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render("dashboard", {
-      projects,
+      blogs,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -76,7 +76,7 @@ router.get("/blog/:id", async (req, res) => {
 //     // Find the logged in user based on the session ID
 //     const userData = await User.findByPk(req.session.user_id, {
 //       attributes: { exclude: ['password'] },
-//       include: [{ model: Project }],
+//       include: [{ model: Blog }],
 //     });
 
 //     const user = userData.get({ plain: true });

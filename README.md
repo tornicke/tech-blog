@@ -63,6 +63,6 @@
 
 <h2>Required URLs:</h2>
 
-[Deployment URL](https://drive.google.com/file/d/12PDXXKg1PuMunqQ8JDzuoeqQ4o1md-G2/view?usp=sharing)
+[Deployment URL](https://intense-mesa-31336.herokuapp.com/)
 
 [GitHub repository URL](https://github.com/tornicke/tech-blog)

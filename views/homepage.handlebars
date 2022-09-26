@@ -1,20 +1,23 @@
-<!-- Loop over each object in the blogs array -->
-{{#each blogs as |blog| }}
-<div class="row mb-4 blog">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/blog/{{blog.id}}">{{blog.name}}</a>
-    </h2>
-    <p><b>{{blog.title}}</b></p>
-    <p>Created by <b>{{blog.user.name}}</b> on {{format_date blog.createdAt}}</p>
-    <p>{{blog.content}}</p>
+<div class="row mt-4">
+  {{#if blogs.length}}
+  <div class="col-md-6 blog-list">
+    <h3>Recent Blogs:</h3>
+
+    {{#each blogs as |blog|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/blog/{{blog.id}}">{{blog.title}}</h4>
+        <span>{{format_date blog.createdAt}}</span>
+        <span>{{blog.user.name}}</span>
+        <span>{{blog.content}}</span>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
   </div>
-  <div class="col-md-7">
-    <p>
-      {{blog.description}}
-    </p>
-  </div>
+  {{/if}}
 </div>
-{{/each}}
+
+<script src="./js/home.js"></script>

@@ -1,0 +1,22 @@
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>View a Single Blog in Detail</h3>
+
+    {{#each blogs as |blog|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+    <p><b>{{blog.title}}</b></p>
+    <p>Created by <b>{{blog.user.name}}</b> on {{format_date blog.createdAt}}</p>
+    <p>{{blog.content}}</p>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+
+</div>
+
+<script src="/js/update.js"></script>

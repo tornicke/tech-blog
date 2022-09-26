@@ -53,6 +53,11 @@
 <li>Repository contains quality readme file with description, screenshot, and link to deployed application.</li>
 
 <h2>Screenshot </h2>
+<h3>Homepage</h3>
+
+![image](https://github.com/tornicke/tech-blog/blob/main/images/Screenshot%202022-09-26%20at%2023.14.24.png)
+
+<h3>dashboard</h3>
 
 ![image](https://github.com/tornicke/tech-blog/blob/main/images/Screenshot%202022-09-26%20at%2023.10.39.png)
 

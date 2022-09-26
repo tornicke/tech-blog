@@ -60,4 +60,4 @@
 
 [Deployment URL](https://drive.google.com/file/d/12PDXXKg1PuMunqQ8JDzuoeqQ4o1md-G2/view?usp=sharing)
 
-[GitHub repository URL](https://github.com/tornicke/e-commerce-back-end)
+[GitHub repository URL](https://github.com/tornicke/tech-blog)

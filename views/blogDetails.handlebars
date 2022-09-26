@@ -5,9 +5,30 @@
     {{#each blogs as |blog|}}
     <div class="row mb-2">
       <div class="col-md-8">
-    <p><b>{{blog.title}}</b></p>
-    <p>Created by <b>{{blog.user.name}}</b> on {{format_date blog.createdAt}}</p>
+    <p>{{blog.title}}</p>
+    <p>Created by {{blog.user.name}} on {{format_date blog.createdAt}}</p>
     <p>{{blog.content}}</p>
+    
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+
+  {{#if comments.length}}
+  <div class="col-md-6 blog-list">
+
+    {{#each comments as |comment|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/blog/{{blog.id}}">{{blog.title}}</h4>
+        <span>{{format_date blog.createdAt}}</span>
+        <span>{{blog.user.name}}</span>
+        <span>{{blog.content}}</span>
+        <span>{{comment.content}}</span>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
@@ -19,4 +40,4 @@
 
 </div>
 
-<script src="/js/update.js"></script>
+<script src="/js/comment.js"></script>

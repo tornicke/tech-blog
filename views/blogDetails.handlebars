@@ -1,8 +1,7 @@
 <div class="row mt-4">
   <div class="col-md-6">
     <h3>View a Single Blog in Detail</h3>
-
-    {{#each blogs as |blog|}}
+    {{#if blog}}
     <div class="row mb-2">
       <div class="col-md-8">
     <p>{{blog.title}}</p>
@@ -11,33 +10,29 @@
     
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE POST</button>
       </div>
     </div>
-    {{/each}}
   </div>
-  {{/if}}
 
-  {{#if comments.length}}
+
   <div class="col-md-6 blog-list">
 
-    {{#each comments as |comment|}}
+    {{#each blog.comments}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/blog/{{blog.id}}">{{blog.title}}</h4>
-        <span>{{format_date blog.createdAt}}</span>
-        <span>{{blog.user.name}}</span>
-        <span>{{blog.content}}</span>
-        <span>{{comment.content}}</span>
+        <p>Comment Created by {{user.name}} on {{format_date createdAt}}</p>
+        <div>{{content}}</div>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{id}}">DELETE COMMENT</button>
       </div>
     </div>
     {{/each}}
   </div>
+
   {{/if}}
+
 
 </div>
 
-<script src="/js/comment.js"></script>

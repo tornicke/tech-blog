@@ -58,18 +58,18 @@ router.get("/blog/:id", async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ["content"],
+          include: [{ model: User }, { model: Blog }],
         },
       ],
     });
 
     const blog = blogData.get({ plain: true });
     console.log(blog);
-    // res.render("blog", {
-    //   ...blog,
-    //   logged_in: req.session.logged_in,
-    // });
-    res.json(blog);
+    res.render("blogDetails", {
+      blog,
+      logged_in: req.session.logged_in,
+    });
+    // res.json(blog);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

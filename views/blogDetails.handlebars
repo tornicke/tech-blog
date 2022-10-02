@@ -4,13 +4,35 @@
     {{#if blog}}
     <div class="row mb-2">
       <div class="col-md-8">
-    <p>{{blog.title}}</p>
-    <p>Created by {{blog.user.name}} on {{format_date blog.createdAt}}</p>
-    <p>{{blog.content}}</p>
     
+    <form class="form edit-blog-form">
+      <div class="form-group">
+        <label for="blog-name">Blog title:</label>
+        <input class="form-input" data-blog_id="{{blog.id}}" type="text" id="blog-name" name="blog-name" value="{{blog.title}}" />
+      </div>
+      <div class="form-group">
+        <label for="blog-desc">Content:</label>
+        <textarea class="form-input" id="blog-desc" name="blog-desc">{{blog.content}}</textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </form>
+    <p>Created by {{blog.user.name}} on {{format_date blog.createdAt}}</p>
+
+    <form class="form add-comment-form">
+      <div class="form-group">
+        <label for="comment-desc">Add a comment</label>
+        <textarea class="form-input" id="comment-desc" name="comment-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add a comment</button>
+      </div>
+    </form>
+
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE POST</button>
+        <button class="btn btn-sm btn-danger blog-list" data-id="{{blog.id}}">DELETE POST</button>
       </div>
     </div>
   </div>
@@ -36,3 +58,5 @@
 
 </div>
 
+<script src="/js/home.js"></script>
+<script src="/js/update.js"></script>

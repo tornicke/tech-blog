@@ -23,5 +23,5 @@ const updatedBlog = async (event) => {
 };
 
 document
-  .querySelector(".new-blog-form")
+  .querySelector(".edit-blog-form")
   .addEventListener("submit", updatedBlog);

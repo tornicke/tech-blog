@@ -7,7 +7,7 @@ const commentDisplay = async (event) => {
   if (id && content) {
     const response = await fetch(`/api/blogs/${id}`, {
       method: "PUT",
-      body: JSON.stringify({ title: name, content: description }),
+      body: JSON.stringify({ content: description }),
       headers: {
         "Content-Type": "application/json",
       },
